@@ -1,9 +1,15 @@
 import { getMovieDetails } from "@/utils/getMovies";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import React from "react";
 
 export default async function MovieDetails({ movieId }) {
   const movie = await getMovieDetails(movieId);
+
+  if (!movie) {
+    return notFound();
+  }
+
   const {
     id,
     title,
