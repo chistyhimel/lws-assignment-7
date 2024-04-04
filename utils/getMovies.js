@@ -17,3 +17,8 @@ export const getMovieDetails = async (movieId) => {
   const movieList = await movies();
   return movieList.find((movie) => movie.id == movieId);
 };
+
+export const getMovieIndex = async (movieId) => {
+  const movieList = await movies();
+  return movieList.findIndex((movie) => movie.id == movieId);
+};

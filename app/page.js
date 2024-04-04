@@ -7,16 +7,13 @@ export default async function Home() {
 
   return (
     <>
-      <main className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">
-        <Sidebar />
-        <div className="content">
-          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-7">
-            {movies.map((movie) => (
-              <MovieCard movie={movie} key={movie.id} />
-            ))}
-          </div>
+      <div className="content">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-7">
+          {movies.map((movie) => (
+            <MovieCard movie={movie} key={movie.id} />
+          ))}
         </div>
-      </main>
+      </div>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import { Sora } from "next/font/google";
 import "./globals.css";
 
@@ -20,9 +21,10 @@ export default function RootLayout({ children }) {
         className={`${sora.className} dark:bg-body bg-white font-[Sora] dark:text-white text-dark`}
       >
         <Navbar />
-
-        {children}
-
+        <main className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">
+          <Sidebar />
+          {children}
+        </main>
         <Footer />
         <div id="modal-root-content" />
       </body>
