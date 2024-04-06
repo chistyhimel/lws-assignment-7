@@ -1,80 +1,34 @@
+import { getDictionary } from "@/app/[lang]/dictionaries/dictionaries";
 import Image from "next/image";
 import React from "react";
 
-export default function Sidebar() {
+const sidebarData = [
+  { icon: "/assets/icons/trending.svg", text: "Trending" },
+  { icon: "/assets/icons/newRelease.svg", text: "New Releases" },
+  { icon: "/assets/icons/commingSoon.svg", text: "Coming Soon" },
+  { icon: "/assets/icons/favourite.svg", text: "Favourites" },
+  { icon: "/assets/icons/watchLater.svg", text: "Watch Later" },
+];
+
+export default async function Sidebar({ lang }) {
+  const dict = await getDictionary(lang);
+  console.log(dict);
   return (
     <aside>
       <ul className="space-y-2">
-        <li>
-          <a
-            className="flex items-center space-x-2 px-5 py-3.5 rounded-lg bg-primary text-black"
-            href="#"
-          >
-            <Image
-              src="/assets/icons/trending.svg"
-              width="24"
-              height="24"
-              alt=""
-            />
-            <span>Trending</span>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
-            href="#"
-          >
-            <Image
-              src="/assets/icons/newRelease.svg"
-              width="24"
-              height="24"
-              alt=""
-            />
-            <span>New Releases</span>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
-            href="#"
-          >
-            <Image
-              src="/assets/icons/commingSoon.svg"
-              width="24"
-              height="24"
-              alt=""
-            />
-            <span>Coming Soon</span>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
-            href="#"
-          >
-            <Image
-              src="/assets/icons/favourite.svg"
-              width="24"
-              height="24"
-              alt=""
-            />
-            <span>Favourites</span>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center space-x-2 px-5 py-3.5 rounded-lg"
-            href="#"
-          >
-            <Image
-              src="/assets/icons/watchLater.svg"
-              width="24"
-              height="24"
-              alt=""
-            />
-            <span>Watch Later</span>
-          </a>
-        </li>
+        {sidebarData.map((item, idx) => (
+          <li key={item.text}>
+            <a
+              className={`flex items-center space-x-2 px-5 py-3.5 rounded-lg ${
+                idx === 0 && "bg-primary text-black"
+              }`}
+              href="#"
+            >
+              <Image src={item.icon} width="24" height="24" alt="" />
+              <span>{dict[item.text.toLowerCase()]}</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </aside>
   );

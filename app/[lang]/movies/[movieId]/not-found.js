@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function MovieNotFound() {
   const pathname = usePathname();
-  const movieId = pathname.split("/")[2];
+  const movieId = pathname.split("/")[3];
   return (
     <>
       <div className="flex my-40 items-center align-middle justify-center">

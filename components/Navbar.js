@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
   return (
@@ -40,6 +41,7 @@ export default function Navbar() {
           </Link>
         </li>
       </ul>
+      <LanguageSwitcher />
     </nav>
   );
 }

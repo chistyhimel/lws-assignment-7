@@ -1,10 +1,12 @@
+import { getDictionary } from "@/app/[lang]/dictionaries/dictionaries";
 import { getMovieDetails } from "@/utils/getMovies";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 
-export default async function MovieDetails({ movieId }) {
+export default async function MovieDetails({ movieId, lang }) {
   const movie = await getMovieDetails(movieId);
+  const dict = await getDictionary(lang);
 
   if (!movie) {
     return notFound();
