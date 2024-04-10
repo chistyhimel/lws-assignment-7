@@ -46,18 +46,26 @@ export default async function MovieDetails({ movieId, lang }) {
               <h2 className="font-bold text-slate-300 text-2xl">{title}</h2>
               <p className="my-2 text-slate-400 italic">{overview}</p>
               <ul className="text-slate-300 space-y-2 my-8">
-                <li>Release Date : {release_date}</li>
-                <li>Average Vote : {vote_average}</li>
-                <li>Vote Count : {vote_count}</li>
-                <li>Popularity : {popularity}</li>
+                <li>
+                  {dict["release date"]} : {release_date}
+                </li>
+                <li>
+                  {dict["average vote"]} : {vote_average}
+                </li>
+                <li>
+                  {dict["vote count"]} : {vote_count}
+                </li>
+                <li>
+                  {dict["popularity"]} : {popularity}
+                </li>
               </ul>
             </div>
             <div className="col-span-2 space-y-4">
               <button className="py-2 w-full bg-primary font-medium text-slate-800 rounded-md">
-                Stream In HD
+                {dict["stream in hd"]}
               </button>
               <button className="py-2 w-full bg-primary font-medium text-slate-800 rounded-md">
-                Download In HD
+                {dict["download in hd"]}
               </button>
             </div>
           </div>

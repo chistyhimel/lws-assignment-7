@@ -12,7 +12,6 @@ const sidebarData = [
 
 export default async function Sidebar({ lang }) {
   const dict = await getDictionary(lang);
-  console.log(dict);
   return (
     <aside>
       <ul className="space-y-2">

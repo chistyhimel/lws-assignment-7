@@ -26,7 +26,10 @@ export async function PATCH(request, { params }) {
   }
 
   const moviesData = await movies();
-  moviesData[movieIndex] = { ...moviesData[movieIndex], ...data };
+
+  if (data.title) {
+    moviesData[movieIndex].title = data.title;
+  }
 
   return new Response(JSON.stringify(moviesData[movieIndex]), {
     status: 200,

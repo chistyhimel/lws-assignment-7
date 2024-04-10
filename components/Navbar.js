@@ -40,8 +40,10 @@ export default function Navbar() {
             />
           </Link>
         </li>
+        <li>
+          <LanguageSwitcher />
+        </li>
       </ul>
-      <LanguageSwitcher />
     </nav>
   );
 }

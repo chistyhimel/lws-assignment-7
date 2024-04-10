@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, dict }) {
   return (
     <div className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
       <Image
@@ -26,7 +26,7 @@ export default function MovieCard({ movie }) {
           href={`/movies/${movie.id}`}
         >
           <Image src="/assets/tag.svg" width="14" height="14" alt="" />
-          <span>Details</span>
+          <span>{dict["details"]}</span>
         </Link>
       </figcaption>
     </div>
