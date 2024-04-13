@@ -58,7 +58,9 @@ const LanguageSwitcher = () => {
               <li
                 key={entry.code}
                 onClick={() => handleLanguageChange(entry.code)}
-                className="flex items-center gap-2 p-2 rounded-md cursor-pointer hover:bg-gray-500"
+                className={`flex items-center gap-2 p-2 rounded-md cursor-pointer ${
+                  entry.code == selectedLanguage.code && "bg-gray-500"
+                } hover:bg-gray-500`}
               >
                 <Image
                   className="max-w-8"
