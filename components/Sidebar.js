@@ -1,6 +1,6 @@
 import { getDictionary } from "@/app/[lang]/dictionaries/dictionaries";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
 
 const sidebarData = [
   { icon: "/assets/icons/trending.svg", text: "Trending" },
@@ -17,15 +17,15 @@ export default async function Sidebar({ lang }) {
       <ul className="space-y-2">
         {sidebarData.map((item, idx) => (
           <li key={item.text}>
-            <a
+            <Link
               className={`flex items-center space-x-2 px-5 py-3.5 rounded-lg ${
                 idx === 0 && "bg-primary text-black"
               }`}
-              href="#"
+              href=""
             >
               <Image src={item.icon} width="24" height="24" alt="" />
               <span>{dict[item.text.toLowerCase()]}</span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

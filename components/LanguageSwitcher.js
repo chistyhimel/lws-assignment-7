@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -28,10 +27,6 @@ const LanguageSwitcher = () => {
   const [showManu, setShowManu] = useState(false);
 
   const handleLanguageChange = (lang) => {
-    /* let path = pathname;
-    if (pathname.includes(selectedLanguage.code)) {
-      path = pathname.replace(selectedLanguage.code, lang);
-    } */
     setSelectedLanguage({
       ...selectedLanguage,
       code: lang,
